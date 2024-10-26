@@ -66,48 +66,6 @@ Here’s a list of the main frontend tools and libraries I use, with icons to ma
 | Docker         | ![Docker](https://img.shields.io/badge/Docker-2496ED?logo=docker&logoColor=white) |
 
 
-<h2>🛠 Technologies and Tools</h2>
-
-<table>
-  <tr>
-    <th style="text-align: left; padding: 10px;">Frontend Frameworks & Libraries</th>
-    <th style="text-align: left; padding: 10px;">Libraries & Tools</th>
-    <th style="text-align: left; padding: 10px;">Dev Tools</th>
-  </tr>
-  <tr>
-    <td style="padding: 10px;">
-      <img src="https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=white">
-      <img src="https://img.shields.io/badge/CSS3-1572B6?logo=css3&logoColor=white">
-      <img src="https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=black">
-      <img src="https://img.shields.io/badge/TypeScript-007ACC?logo=typescript&logoColor=white">
-      <img src="https://img.shields.io/badge/React-61DAFB?logo=react&logoColor=black">
-      <img src="https://img.shields.io/badge/Next.js-000000?logo=nextdotjs&logoColor=white">
-      <img src="https://img.shields.io/badge/Vue.js-4FC08D?logo=vue.js&logoColor=white">
-      <img src="https://img.shields.io/badge/Angular-DD0031?logo=angular&logoColor=white">
-      <img src="https://img.shields.io/badge/Bootstrap-563D7C?logo=bootstrap&logoColor=white">
-      <img src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?logo=tailwind-css&logoColor=white">
-    </td>
-    <td style="padding: 10px;">
-      <img src="https://img.shields.io/badge/Redux-764ABC?logo=redux&logoColor=white">
-      <img src="https://img.shields.io/badge/jQuery-0769AD?logo=jquery&logoColor=white">
-      <img src="https://img.shields.io/badge/Axios-5A29E4?logo=axios&logoColor=white">
-      <img src="https://img.shields.io/badge/Apollo-311C87?logo=apollographql&logoColor=white">
-      <img src="https://img.shields.io/badge/Chart.js-FF6384?logo=chartdotjs&logoColor=white">
-    </td>
-    <td style="padding: 10px;">
-      <img src="https://img.shields.io/badge/Git-F05032?logo=git&logoColor=white">
-      <img src="https://img.shields.io/badge/Webpack-8DD6F9?logo=webpack&logoColor=black">
-      <img src="https://img.shields.io/badge/Babel-F9DC3E?logo=babel&logoColor=black">
-      <img src="https://img.shields.io/badge/VS_Code-007ACC?logo=visual-studio-code&logoColor=white">
-      <img src="https://img.shields.io/badge/npm-CB3837?logo=npm&logoColor=white">
-      <img src="https://img.shields.io/badge/Yarn-2C8EBB?logo=yarn&logoColor=white">
-      <img src="https://img.shields.io/badge/Docker-2496ED?logo=docker&logoColor=white">
-    </td>
-  </tr>
-</table>
-
-
-
 
 ### 💬 Contact Me
 
