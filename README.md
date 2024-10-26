@@ -1,4 +1,4 @@
-## Hi there 👋
+## Hi there  🙏 😎😎
 
 <!--
 **raviroyit/raviroyit** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
@@ -15,7 +15,7 @@ Here are some ideas to get you started:
 - ⚡ Fun fact: ...
 -->
 
-🔭 I am Front end, UI/UX developer having 10+ years of working in IT industry.
+💘 I am Front end, UI/UX developer having 10+ years of working in IT industry.
 My sill sets are - HTML, CSS, Javascript, React JS, XAML. Photoshop, Figma
 Experience working on UI with different backend frameworks.
 
