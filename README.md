@@ -72,3 +72,35 @@ If you have any questions, feel free to reach out!
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/raviroyit/)
 [![GitHub](https://img.shields.io/badge/GitHub-181717?logo=github&logoColor=white)](https://github.com)
 
+
+
+# 🛠️ Technologies and Tools
+
+### 🌐 Frontend Frameworks & Libraries
+- ![HTML5](https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=white)
+- ![CSS3](https://img.shields.io/badge/CSS3-1572B6?logo=css3&logoColor=white)
+- ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=black)
+- ![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?logo=typescript&logoColor=white)
+- ![React](https://img.shields.io/badge/React-61DAFB?logo=react&logoColor=black)
+- ![Next.js](https://img.shields.io/badge/Next.js-000000?logo=nextdotjs&logoColor=white)
+- ![Vue.js](https://img.shields.io/badge/Vue.js-4FC08D?logo=vue.js&logoColor=white)
+- ![Angular](https://img.shields.io/badge/Angular-DD0031?logo=angular&logoColor=white)
+- ![Bootstrap](https://img.shields.io/badge/Bootstrap-563D7C?logo=bootstrap&logoColor=white)
+- ![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?logo=tailwind-css&logoColor=white)
+
+### 📚 Libraries & Other Tools
+- ![Redux](https://img.shields.io/badge/Redux-764ABC?logo=redux&logoColor=white)
+- ![jQuery](https://img.shields.io/badge/jQuery-0769AD?logo=jquery&logoColor=white)
+- ![Axios](https://img.shields.io/badge/Axios-5A29E4?logo=axios&logoColor=white)
+- ![Apollo](https://img.shields.io/badge/Apollo-311C87?logo=apollographql&logoColor=white)
+- ![Chart.js](https://img.shields.io/badge/Chart.js-FF6384?logo=chartdotjs&logoColor=white)
+
+### 🔧 Dev Tools
+- ![Git](https://img.shields.io/badge/Git-F05032?logo=git&logoColor=white)
+- ![Webpack](https://img.shields.io/badge/Webpack-8DD6F9?logo=webpack&logoColor=black)
+- ![Babel](https://img.shields.io/badge/Babel-F9DC3E?logo=babel&logoColor=black)
+- ![VS Code](https://img.shields.io/badge/VS_Code-007ACC?logo=visual-studio-code&logoColor=white)
+- ![npm](https://img.shields.io/badge/npm-CB3837?logo=npm&logoColor=white)
+- ![Yarn](https://img.shields.io/badge/Yarn-2C8EBB?logo=yarn&logoColor=white)
+- ![Docker](https://img.shields.io/badge/Docker-2496ED?logo=docker&logoColor=white)
+
