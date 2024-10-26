@@ -25,8 +25,6 @@ Experience working on UI with different backend frameworks.
 
 ## 🛠️ Technologies and Tools
 
-<h2>🛠 Technologies and Tools</h2>
-
 <table width="100%">
   <tr>
     <td width="33%" valign="top">
