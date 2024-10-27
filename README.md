@@ -38,13 +38,14 @@ Experience working on UI with different backend frameworks.
 | JavaScript      | ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=black) |
 | TypeScript      | ![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?logo=typescript&logoColor=white) |
 | React           | ![React](https://img.shields.io/badge/React-61DAFB?logo=react&logoColor=black) |
-<!--| Next.js         | ![Next.js](https://img.shields.io/badge/Next.js-000000?logo=nextdotjs&logoColor=white) |
-| Vue.js          | ![Vue.js](https://img.shields.io/badge/Vue.js-4FC08D?logo=vue.js&logoColor=white) |
-| Angular         | ![Angular](https://img.shields.io/badge/Angular-DD0031?logo=angular&logoColor=white) | -->
 | Bootstrap       | ![Bootstrap](https://img.shields.io/badge/Bootstrap-563D7C?logo=bootstrap&logoColor=white) |
 | Tailwind CSS    | ![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?logo=tailwind-css&logoColor=white) |
 | SASS/SCSS       | ![SASS](https://img.shields.io/badge/Sass-CC6699?logo=sass&logoColor=white) |
 | Material-UI     | ![Material-UI](https://img.shields.io/badge/Material--UI-0081CB?logo=material-ui&logoColor=white) |
+<!--| Next.js         | ![Next.js](https://img.shields.io/badge/Next.js-000000?logo=nextdotjs&logoColor=white) |
+| Vue.js          | ![Vue.js](https://img.shields.io/badge/Vue.js-4FC08D?logo=vue.js&logoColor=white) |
+| Angular         | ![Angular](https://img.shields.io/badge/Angular-DD0031?logo=angular&logoColor=white) | -->
+
 
 </td>
 <td width="33%" valign="top">
