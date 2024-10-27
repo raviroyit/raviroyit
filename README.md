@@ -16,7 +16,8 @@ Here are some ideas to get you started:
 -->
 
 💘 I am Front end, UI/UX developer having 10+ years of working in IT industry.
-My sill sets are - HTML, CSS, Javascript, React JS, XAML. Photoshop, Figma
+My sill sets are - HTML, CSS, Javascript, React JS, XAML. Photoshop, Figma.
+<br />
 Experience working on UI with different backend frameworks.
 
 🌱 I am learning Node backend development with Express and Next JS Mongo DB
