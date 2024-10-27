@@ -90,12 +90,42 @@ Experience working on UI with different backend frameworks.
 ### 💬 Contact Me
 
 If you have any questions, feel free to reach out!
-
-
-| Email           | ![Email](https://img.shields.io/badge/Email-D14836?logo=gmail&logoColor=white) [raviroyit@gmail.com](mailto:raviroyit@gmail.com) |
-| Phone           | ![Phone](https://img.shields.io/badge/Phone-+919870409425?logo=whatsapp&logoColor=white) [+919870409425](tel:+919870409425) |
-| LinkedIn           | ![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/raviroyit/)
-| Github           | ![GitHub](https://img.shields.io/badge/GitHub-181717?logo=github&logoColor=white)](https://github.com)
+<section id="contact">
+        <table>
+            <tr>
+                <td>Email:</td>
+                <td>
+                    <a href="mailto:raviroyit@gmail.com">
+                        <img src="https://img.shields.io/badge/Email-D14836?logo=gmail&logoColor=white" alt="Email Icon">
+                    </a>
+                </td>
+            </tr>
+            <tr>
+                <td>Phone:</td>
+                <td>
+                    <a href="tel:0987409425">
+                        <img src="https://img.shields.io/badge/Phone-25D366?logo=whatsapp&logoColor=white" alt="Phone Icon">
+                    </a>
+                </td>
+            </tr>
+            <tr>
+                <td>LinkedIn:</td>
+                <td>
+                    <a href="https://www.linkedin.com/in/raviroyit/" target="_blank">
+                        <img src="https://img.shields.io/badge/LinkedIn-0A66C2?logo=linkedin&logoColor=white" alt="LinkedIn Icon">
+                    </a>
+                </td>
+            </tr>
+            <tr>
+                <td>Upwork:</td>
+                <td>
+                    <a href="https://www.upwork.com/freelancers/~011c6f4f6d8cfb0973?mp_source=share" target="_blank">
+                        <img src="https://img.shields.io/badge/Upwork-6FDA44?logo=upwork&logoColor=white" alt="Upwork Icon">
+                    </a>
+                </td>
+            </tr>
+        </table>
+    </section>
 
 
 
