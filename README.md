@@ -1,4 +1,4 @@
-## Hi there  🙏 😎😎
+## Hi there  🙏
 
 <!--
 **raviroyit/raviroyit** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
@@ -15,13 +15,12 @@ Here are some ideas to get you started:
 - ⚡ Fun fact: ...
 -->
 
-💘 I am Front end, UI/UX developer having 10+ years of working in IT industry.
-My sill sets are - HTML, CSS, Javascript, React JS, XAML. Photoshop, Figma.
+💘 I am Front end, UI/UX Frontend web developer having 11+ years of working in IT industry.
+My skill sets are - HTML, CSS, Javascript, React JS, XAML. Photoshop, Figma, Sharepoint.
 <br />
 Experience working on UI with different backend frameworks.
 
 🌱 I am learning Node backend development with Express and Next JS Mongo DB
-
 
 
 ## 🛠️ Technologies and Tools
@@ -44,6 +43,7 @@ Experience working on UI with different backend frameworks.
 | Tailwind CSS    | ![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?logo=tailwind-css&logoColor=white) |
 | SASS/SCSS       | ![SASS](https://img.shields.io/badge/Sass-CC6699?logo=sass&logoColor=white) |
 | Material-UI     | ![Material-UI](https://img.shields.io/badge/Material--UI-0081CB?logo=material-ui&logoColor=white) |
+| Sharepoint      | ![SharePoint](https://img.shields.io/badge/SharePoint-038387?style=for-the-badge&logo=microsoftsharepoint&logoColor=white) |
 <!--| Next.js         | ![Next.js](https://img.shields.io/badge/Next.js-000000?logo=nextdotjs&logoColor=white) |
 | Vue.js          | ![Vue.js](https://img.shields.io/badge/Vue.js-4FC08D?logo=vue.js&logoColor=white) |
 | Angular         | ![Angular](https://img.shields.io/badge/Angular-DD0031?logo=angular&logoColor=white) | -->
@@ -61,6 +61,7 @@ Experience working on UI with different backend frameworks.
 | Axios           | ![Axios](https://img.shields.io/badge/Axios-5A29E4?logo=axios&logoColor=white) |
 | Apollo Client   | ![Apollo](https://img.shields.io/badge/Apollo-311C87?logo=apollographql&logoColor=white) |
 | Chart.js        | ![Chart.js](https://img.shields.io/badge/Chart.js-FF6384?logo=chartdotjs&logoColor=white) |
+| MS Graph API    | ![Microsoft Graph](https://img.shields.io/badge/Microsoft%20Graph-0078D4?style=flat-square&logo=microsoft&logoColor=white) |
 
 </td>
 <td width="33%" valign="top">
