@@ -15,7 +15,7 @@ Here are some ideas to get you started:
 - ⚡ Fun fact: ...
 -->
 
-💘 I am Front end, UI/UX Frontend web developer having 11+ years of working in IT industry.
+💘 I am UI/UX Frontend web developer having 11+ years of working in IT industry.
 My skill sets are - HTML, CSS, Javascript, React JS, XAML. Photoshop, Figma, Sharepoint.
 <br />
 Experience working on UI with different backend frameworks.
