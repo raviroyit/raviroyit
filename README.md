@@ -74,8 +74,7 @@ Experience working on UI with different backend frameworks.
 | Babel           | ![Babel](https://img.shields.io/badge/Babel-F9DC3E?logo=babel&logoColor=black) |
 | VS Code         | ![VS Code](https://img.shields.io/badge/VS_Code-007ACC?logo=visual-studio-code&logoColor=white) |
 | npm             | ![npm](https://img.shields.io/badge/npm-CB3837?logo=npm&logoColor=white) |
-| Yarn            | ![Yarn](https://img.shields.io/badge/Yarn-2C8EBB?logo=yarn&logoColor=white) |
-| Docker          | ![Docker](https://img.shields.io/badge/Docker-2496ED?logo=docker&logoColor=white) |
+
 
 </td>
   </tr>
