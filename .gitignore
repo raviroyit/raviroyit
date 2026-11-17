@@ -1,0 +1,24 @@
+# Dependencies
+node_modules/
+
+# Next.js & build outputs
+.next/
+dist/
+out/
+build/
+
+# Environment variables (protects API keys & DB passwords)
+.env
+.env*.local
+.env.production
+
+# TypeScript & Vercel caches
+*.tsbuildinfo
+.vercel/
+
+# OS & Editor files (Windows & VS Code)
+Thumbs.db
+Desktop.ini
+.DS_Store
+.vscode/*
+!.vscode/extensions.json
