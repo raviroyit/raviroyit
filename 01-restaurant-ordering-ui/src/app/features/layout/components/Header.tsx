@@ -17,6 +17,7 @@ import {
 } from "@/components/ui/select";
 import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
+import { useCart } from "../../cart/context/CartContext";
 
 interface HeaderProps {
   cartCount?: number;
@@ -29,7 +30,7 @@ const DELIVERY_LOCATIONS = [
   { value: "bailey-rd", label: "Bailey Rd, Patna" },
   { value: "rajendra-nagar", label: "Rajendra Nagar, Patna" },
 ] as const;
-export function Header({ cartCount = 0, onOpenCart }: HeaderProps) {
+export function Header() {
   const [selectedLocation, setSelectedLocation] = useState<string>("boring-rd");
   const [isDark, setIsDark] = useState(false);
   const router = useRouter();
@@ -39,6 +40,8 @@ export function Header({ cartCount = 0, onOpenCart }: HeaderProps) {
 
   const searchInputRef = useRef<HTMLInputElement>(null);
   // Sync initial theme from localStorage or OS preference
+
+  const { totalCount, openDrawer } = useCart();
 
   const toggleTheme = () => {
     const next = !isDark;
@@ -207,8 +210,8 @@ export function Header({ cartCount = 0, onOpenCart }: HeaderProps) {
 
           <Button
             type="button"
-            onClick={onOpenCart}
-            aria-label={`Open cart with ${cartCount} items`}
+            onClick={openDrawer}
+            aria-label={`Open cart with ${totalCount} items`}
             className="rounded-full px-4 font-semibold shadow-sm"
           >
             <ShoppingBag className="mr-2 h-4 w-4" />
@@ -217,7 +220,7 @@ export function Header({ cartCount = 0, onOpenCart }: HeaderProps) {
               variant="secondary"
               className="ml-2 h-5 min-w-[20px] justify-center rounded-full bg-white/20 dark:bg-gray-400 px-1.5 text-xs font-bold text-white dark:text-black tabular-nums hover:bg-white/25"
             >
-              {cartCount}
+              {totalCount}
             </Badge>
           </Button>
         </div>

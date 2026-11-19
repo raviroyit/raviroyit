@@ -4,6 +4,7 @@ import HeroBanner from "./features/home/components/HeroBanner";
 import { MenuGrid } from "./features/menu/components/MenuGrid";
 import { CategoryFilterBar } from "./features/menu/components/CategoryFilterBar";
 import { Footer } from "./features/layout/components/Footer";
+import { CartDrawer } from "./features/cart/components/CartDrawer";
 
 export default function Home() {
   return (
@@ -11,7 +12,7 @@ export default function Home() {
       <Suspense
         fallback={<div className="h-16 w-full border-b bg-background" />}
       >
-        <Header cartCount={2} />
+        <Header />
       </Suspense>
       <main className="mx-auto max-w-7xl px-4 py-4 sm:px-6 lg:px-8">
         <HeroBanner />
@@ -23,6 +24,7 @@ export default function Home() {
         </Suspense>
       </main>
       <Footer />
+      <CartDrawer />
     </div>
   );
 }

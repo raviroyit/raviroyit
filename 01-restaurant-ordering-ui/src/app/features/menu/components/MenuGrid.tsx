@@ -6,9 +6,9 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { MENU_ITEMS, type MenuItem } from "../data/menu-items";
 import DishDetailsModal from "./DishDetailsModal";
+import { useCart } from "../../cart/context/CartContext";
 
 export function MenuGrid() {
-  const [quantities, setQuantities] = useState<Record<string, number>>({});
   const [selectedDish, setSelectedDish] = useState<MenuItem | null>(null);
   const router = useRouter();
   const pathname = usePathname();
@@ -18,26 +18,7 @@ export function MenuGrid() {
   const selectedCategory = searchParams.get("category") ?? "all";
   const isPureVegOnly = searchParams.get("veg") === "true";
 
-  const handleIncrement = (itmeId: string) => {
-    setQuantities((prev) => ({
-      ...prev,
-      [itmeId]: (prev[itmeId] ?? 0) + 1,
-    }));
-  };
-  const handleDecrement = (itemId: string) => {
-    setQuantities((prev) => {
-      const current = prev[itemId] ?? 0;
-      if (current <= 1) {
-        const next = { ...prev };
-        delete next[itemId];
-        return next;
-      }
-      return {
-        ...prev,
-        [itemId]: current - 1,
-      };
-    });
-  };
+  const { addItem, decrementDishDefault, getDishTotalQuantity } = useCart();
 
   const filteredItems = useMemo(() => {
     return MENU_ITEMS.filter((item) => {
@@ -99,7 +80,7 @@ export function MenuGrid() {
       ) : (
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {filteredItems.map((item) => {
-            const qty = quantities[item.id] ?? 0;
+            const qty = getDishTotalQuantity(item.id);
             return (
               <article
                 key={item.id}
@@ -183,7 +164,7 @@ export function MenuGrid() {
                     <Button
                       type="button"
                       size="sm"
-                      onClick={() => handleIncrement(item.id)}
+                      onClick={() => addItem({ dish: item })}
                       aria-label={`Add ${item.name} to cart`}
                       className="h-9 rounded-full px-4 text-xs font-semibold shadow-xs"
                     >
@@ -200,7 +181,7 @@ export function MenuGrid() {
                         type="button"
                         variant="ghost"
                         size="icon"
-                        onClick={() => handleDecrement(item.id)}
+                        onClick={() => decrementDishDefault(item.id)}
                         aria-label={`Decrease quantity of ${item.name}`}
                         className="h-7 w-7 rounded-full text-primary hover:bg-primary hover:text-primary-foreground"
                       >
@@ -218,7 +199,7 @@ export function MenuGrid() {
                         type="button"
                         variant="ghost"
                         size="icon"
-                        onClick={() => handleIncrement(item.id)}
+                        onClick={() => addItem({ dish: item })}
                         aria-label={`Increase quantity of ${item.name}`}
                         className="h-7 w-7 rounded-full text-primary hover:bg-primary hover:text-primary-foreground"
                       >
@@ -236,7 +217,7 @@ export function MenuGrid() {
       <DishDetailsModal
         dish={selectedDish}
         onClose={() => setSelectedDish(null)}
-        onAddToOrder={({ dish }) => handleIncrement(dish.id)}
+        onAddToOrder={(selection) => addItem(selection)}
       />
     </section>
   );
