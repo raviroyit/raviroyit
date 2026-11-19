@@ -1,13 +1,15 @@
 "use client";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { Minus, Plus, SearchX, Star } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { MENU_ITEMS } from "../data/menu-items";
+import { MENU_ITEMS, type MenuItem } from "../data/menu-items";
+import DishDetailsModal from "./DishDetailsModal";
 
 export function MenuGrid() {
   const [quantities, setQuantities] = useState<Record<string, number>>({});
+  const [selectedDish, setSelectedDish] = useState<MenuItem | null>(null);
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
@@ -37,18 +39,20 @@ export function MenuGrid() {
     });
   };
 
-  const filteredItems = MENU_ITEMS.filter((item) => {
-    console.log("Filtering");
-    const matchesCategory =
-      selectedCategory === "all" || item.category === selectedCategory;
-    const matchesVeg = !isPureVegOnly || item.isVeg;
-    const matchesSearch =
-      query === "" ||
-      item.name.toLowerCase().includes(query) ||
-      item.description.toLowerCase().includes(query);
+  const filteredItems = useMemo(() => {
+    return MENU_ITEMS.filter((item) => {
+      console.log("Filtering");
+      const matchesCategory =
+        selectedCategory === "all" || item.category === selectedCategory;
+      const matchesVeg = !isPureVegOnly || item.isVeg;
+      const matchesSearch =
+        query === "" ||
+        item.name.toLowerCase().includes(query) ||
+        item.description.toLowerCase().includes(query);
 
-    return matchesCategory && matchesVeg && matchesSearch;
-  });
+      return matchesCategory && matchesVeg && matchesSearch;
+    });
+  }, [selectedCategory, isPureVegOnly, query]);
 
   const handleResetFilters = () => {
     router.replace(pathname, { scroll: false });
@@ -101,7 +105,19 @@ export function MenuGrid() {
                 key={item.id}
                 className="flex flex-col justify-between overflow-hidden rounded-2xl border bg-card shadow-xs transition-shadow hover:shadow-md"
               >
-                <div>
+                <div
+                  role="button"
+                  tabIndex={0}
+                  onClick={() => setSelectedDish(item)}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter" || e.key === " ") {
+                      e.preventDefault();
+                      setSelectedDish(item);
+                    }
+                  }}
+                  aria-label={`View details and customize ${item.name}`}
+                  className="cursor-pointer outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-primary"
+                >
                   {/* Dish Visual Placeholder */}
                   <div className="relative flex aspect-[16/10] w-full items-center justify-center bg-muted/50 text-6xl">
                     {item.bestseller && (
@@ -216,6 +232,12 @@ export function MenuGrid() {
           })}
         </div>
       )}
+
+      <DishDetailsModal
+        dish={selectedDish}
+        onClose={() => setSelectedDish(null)}
+        onAddToOrder={({ dish }) => handleIncrement(dish.id)}
+      />
     </section>
   );
 }

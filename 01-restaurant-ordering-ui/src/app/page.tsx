@@ -3,6 +3,7 @@ import { Header } from "./features/layout/components/Header";
 import HeroBanner from "./features/home/components/HeroBanner";
 import { MenuGrid } from "./features/menu/components/MenuGrid";
 import { CategoryFilterBar } from "./features/menu/components/CategoryFilterBar";
+import { Footer } from "./features/layout/components/Footer";
 
 export default function Home() {
   return (
@@ -21,6 +22,7 @@ export default function Home() {
           <MenuGrid />
         </Suspense>
       </main>
+      <Footer />
     </div>
   );
 }

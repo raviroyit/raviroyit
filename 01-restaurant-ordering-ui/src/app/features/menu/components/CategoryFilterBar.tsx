@@ -52,7 +52,7 @@ export function CategoryFilterBar() {
   return (
     <div
       id="menu-section"
-      className="sticky top-16 z-30 mt-6 scroll-mt-20 border-y bg-background/95 backdrop-blur-md"
+      className="sticky top-0 z-30 mt-6 scroll-mt-20 border-y bg-background/95 backdrop-blur-md"
     >
       <div className="mx-auto flex max-w-7xl flex-col gap-3 px-4 py-3 sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8">
         {/* Horizontal Scrollable Category Pills */}
