@@ -9,11 +9,6 @@ import { CartDrawer } from "./features/cart/components/CartDrawer";
 export default function Home() {
   return (
     <div className="min-h-screen">
-      <Suspense
-        fallback={<div className="h-16 w-full border-b bg-background" />}
-      >
-        <Header />
-      </Suspense>
       <main className="mx-auto max-w-7xl px-4 py-4 sm:px-6 lg:px-8">
         <HeroBanner />
         <Suspense
@@ -23,8 +18,6 @@ export default function Home() {
           <MenuGrid />
         </Suspense>
       </main>
-      <Footer />
-      <CartDrawer />
     </div>
   );
 }

@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { MapPin, Search, X, Sun, Moon, ShoppingBag } from "lucide-react";
+import { MapPin, Search, X, Sun, Moon, ShoppingBag, User } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -18,6 +18,7 @@ import {
 import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
 import { useCart } from "../../cart/context/CartContext";
+import { useTheme } from "next-themes";
 
 interface HeaderProps {
   cartCount?: number;
@@ -30,9 +31,9 @@ const DELIVERY_LOCATIONS = [
   { value: "bailey-rd", label: "Bailey Rd, Patna" },
   { value: "rajendra-nagar", label: "Rajendra Nagar, Patna" },
 ] as const;
+
 export function Header() {
   const [selectedLocation, setSelectedLocation] = useState<string>("boring-rd");
-  const [isDark, setIsDark] = useState(false);
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
@@ -41,24 +42,8 @@ export function Header() {
   const searchInputRef = useRef<HTMLInputElement>(null);
   // Sync initial theme from localStorage or OS preference
 
-  const { totalCount, openDrawer } = useCart();
-
-  const toggleTheme = () => {
-    const next = !isDark;
-    setIsDark(next);
-    document.documentElement.classList.toggle("dark", next);
-    localStorage.setItem("theme", next ? "dark" : "light");
-  };
-  useEffect(() => {
-    const stored = localStorage.getItem("theme");
-    const prefersDark = window.matchMedia(
-      "(prefers-color-scheme: dark)",
-    ).matches;
-    const shouldBeDark = stored === "dark" || (!stored && prefersDark);
-
-    document.documentElement.classList.toggle("dark", shouldBeDark);
-    setIsDark(shouldBeDark);
-  }, []);
+  const { totalCount, openDrawer, profile } = useCart();
+  const { resolvedTheme, setTheme } = useTheme();
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -193,20 +178,17 @@ export function Header() {
         {/* Right Slot: (We will add Theme Toggle & Cart here in Pieces 4 & 5) */}
         {/* Right Slot: Theme Toggle & Cart */}
         <div className="order-2 flex items-center gap-2.5 md:order-3">
-          <Button
+          <button
             type="button"
-            variant="outline"
-            size="icon"
-            onClick={toggleTheme}
-            aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
-            className="rounded-full bg-card"
+            onClick={() =>
+              setTheme(resolvedTheme === "dark" ? "light" : "dark")
+            }
+            aria-label="Toggle theme"
+            className="flex h-9 w-9 items-center justify-center rounded-full border border-border bg-background text-foreground transition-colors hover:bg-muted"
           >
-            {isDark ? (
-              <Sun className="h-4 w-4 text-amber-400" />
-            ) : (
-              <Moon className="h-4 w-4 text-foreground" />
-            )}
-          </Button>
+            <Sun className="hidden h-4 w-4 text-amber-400 dark:block" />
+            <Moon className="block h-4 w-4 dark:hidden" />
+          </button>
 
           <Button
             type="button"
@@ -223,6 +205,17 @@ export function Header() {
               {totalCount}
             </Badge>
           </Button>
+
+          <Link
+            href="/account"
+            aria-label="Open user profile and order history"
+            className="inline-flex items-center gap-1.5 rounded-full border border-border bg-background px-3 py-1.5 text-xs font-semibold text-foreground transition-colors hover:bg-muted sm:text-sm"
+          >
+            <User className="h-3.5 w-3.5 text-primary" />
+            <span className="hidden sm:inline">
+              {profile.name.split(" ")[0] || "Account"}
+            </span>
+          </Link>
         </div>
       </div>
     </header>

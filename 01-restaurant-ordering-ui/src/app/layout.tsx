@@ -1,8 +1,13 @@
 import type { Metadata } from "next";
+import { ThemeProvider } from "next-themes";
 import { Geist, Geist_Mono } from "next/font/google";
 import { Fraunces, Inter } from "next/font/google";
 import "./globals.css";
 import { CartProvider } from "./features/cart/context/CartContext";
+import { Header } from "./features/layout/components/Header";
+import { Footer } from "./features/layout/components/Footer";
+import { CartDrawer } from "./features/cart/components/CartDrawer";
+import { Suspense } from "react";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -36,10 +41,32 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
+      suppressHydrationWarning
       className={`${fraunces.variable} ${inter.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        <CartProvider>{children}</CartProvider>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <CartProvider>
+            <div className="flex min-h-screen flex-col bg-background text-foreground">
+              <Suspense
+                fallback={
+                  <div className="h-16 w-full border-b bg-background" />
+                }
+              >
+                <Header />
+              </Suspense>
+
+              <main className="flex-1">{children}</main>
+              <Footer />
+              <CartDrawer />
+            </div>
+          </CartProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

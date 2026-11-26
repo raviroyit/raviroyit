@@ -10,17 +10,18 @@ import {
   UtensilsCrossed,
   Wallet,
 } from "lucide-react";
+import Link from "next/link";
 import { useSyncExternalStore } from "react";
 
 const emptySubscribe = () => () => {};
 
 const QUICK_MENU_LINKS = [
-  { label: "All Dishes", slug: "all" },
-  { label: "Dum Biryani", slug: "dum-biryani" },
-  { label: "Charcoal Starters", slug: "starters" },
-  { label: "Royal Curries", slug: "curries" },
-  { label: "Tandoor Breads", slug: "tandoor-breads" },
-  { label: "Shahi Desserts", slug: "desserts" },
+  { label: "All Dishes", href: "/#menu-section" },
+  { label: "Dum Biryani", href: "/?category=dum-biryani#menu-section" },
+  { label: "Charcoal Starters", href: "/?category=starters#menu-section" },
+  { label: "Main Course", href: "/?category=main-course#menu-section" },
+  { label: "Tandoor Breads", href: "/?category=breads#menu-section" },
+  { label: "Pure Veg Specials", href: "/?veg=true#menu-section" },
 ];
 
 const PAYMENT_METHODS = [
@@ -44,22 +45,26 @@ export function Footer() {
     () => 2026, // Server prerender snapshot
   );
 
-  const handleQuickFilter = (slug: string) => {
-    const params = new URLSearchParams(window.location.search);
-    if (slug === "all") {
-      params.delete("category");
+  const handleMenuLinkClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    href: string,
+  ) => {
+    e.preventDefault();
+    const [targetUrl] = href.split("#");
+
+    router.push(targetUrl || "/", { scroll: false });
+
+    if (pathname === "/") {
+      document
+        .getElementById("menu-section")
+        ?.scrollIntoView({ behavior: "smooth" });
     } else {
-      params.set("category", slug);
-    }
-
-    const queryString = params.toString();
-    router.replace(queryString ? `${pathname}?${queryString}` : pathname, {
-      scroll: false,
-    });
-
-    const menuSection = document.getElementById("menu-section");
-    if (menuSection) {
-      menuSection.scrollIntoView({ behavior: "smooth" });
+      // Allow "/" to mount before scrolling to #menu-section
+      setTimeout(() => {
+        document
+          .getElementById("menu-section")
+          ?.scrollIntoView({ behavior: "smooth" });
+      }, 120);
     }
   };
 
@@ -100,14 +105,14 @@ export function Footer() {
             </h3>
             <ul className="space-y-2">
               {QUICK_MENU_LINKS.map((link) => (
-                <li key={link.slug}>
-                  <button
-                    type="button"
-                    onClick={() => handleQuickFilter(link.slug)}
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    onClick={(e) => handleMenuLinkClick(e, link.href)}
                     className="text-xs font-medium text-muted-foreground outline-none transition-colors hover:text-primary focus-visible:underline sm:text-sm"
                   >
                     {link.label}
-                  </button>
+                  </Link>
                 </li>
               ))}
             </ul>

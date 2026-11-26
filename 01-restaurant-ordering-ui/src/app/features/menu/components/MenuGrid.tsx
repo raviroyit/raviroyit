@@ -22,7 +22,6 @@ export function MenuGrid() {
 
   const filteredItems = useMemo(() => {
     return MENU_ITEMS.filter((item) => {
-      console.log("Filtering");
       const matchesCategory =
         selectedCategory === "all" || item.category === selectedCategory;
       const matchesVeg = !isPureVegOnly || item.isVeg;

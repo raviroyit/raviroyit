@@ -1,8 +1,10 @@
 "use client";
 
-import React, { useState } from "react";
+import { useState } from "react";
+import Link from "next/link";
 import {
   CheckCircle2,
+  MapPin,
   Minus,
   Plus,
   ShoppingBag,
@@ -17,7 +19,7 @@ import {
   SheetTitle,
 } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
-import { useCart } from "../context/CartContext";
+import { useCart, type OrderRecord } from "../context/CartContext";
 
 const FREE_DELIVERY_THRESHOLD = 499;
 const STANDARD_DELIVERY_FEE = 40;
@@ -33,9 +35,15 @@ export function CartDrawer() {
     incrementByCartKey,
     decrementByCartKey,
     clearCart,
+    addresses,
+    selectedAddressId,
+    placeOrder,
   } = useCart();
 
-  const [orderPlaced, setOrderPlaced] = useState(false);
+  const [placedOrder, setPlacedOrder] = useState<OrderRecord | null>(null);
+
+  const activeAddress =
+    addresses.find((a) => a.id === selectedAddressId) ?? addresses[0];
 
   const gstAmount = Math.round(subtotal * GST_RATE);
   const deliveryFee =
@@ -46,13 +54,18 @@ export function CartDrawer() {
   const amountForFreeDelivery = Math.max(0, FREE_DELIVERY_THRESHOLD - subtotal);
 
   const handleClose = () => {
-    setOrderPlaced(false);
+    setPlacedOrder(null);
     closeDrawer();
   };
 
   const handlePlaceOrder = () => {
-    clearCart();
-    setOrderPlaced(true);
+    const created = placeOrder({
+      subtotal,
+      gstAmount,
+      deliveryFee,
+      grandTotal,
+    });
+    setPlacedOrder(created);
   };
 
   return (
@@ -69,11 +82,11 @@ export function CartDrawer() {
             <div className="flex items-center gap-2.5">
               <ShoppingBag className="h-5 w-5 text-primary" />
               <SheetTitle className="font-serif text-xl font-bold text-foreground">
-                {orderPlaced ? "Order Confirmed" : `Your Order (${totalCount})`}
+                {placedOrder ? "Order Confirmed" : `Your Order (${totalCount})`}
               </SheetTitle>
             </div>
 
-            {items.length > 0 && !orderPlaced && (
+            {items.length > 0 && !placedOrder && (
               <button
                 type="button"
                 onClick={clearCart}
@@ -91,12 +104,15 @@ export function CartDrawer() {
         </SheetHeader>
 
         {/* State 1: Order Confirmation Receipt */}
-        {orderPlaced ? (
+        {placedOrder ? (
           <div className="flex flex-1 flex-col items-center justify-center px-6 text-center">
             <div className="flex h-16 w-16 items-center justify-center rounded-full bg-emerald-500/15 text-emerald-600 dark:text-emerald-400">
               <CheckCircle2 className="h-9 w-9" />
             </div>
-            <h3 className="mt-4 font-serif text-2xl font-bold text-foreground">
+            <span className="mt-4 rounded-full bg-muted px-3 py-1 font-mono text-xs font-bold text-foreground">
+              {placedOrder.id}
+            </span>
+            <h3 className="mt-2 font-serif text-2xl font-bold text-foreground">
               Shukriya! Order Received
             </h3>
             <p className="mt-2 max-w-xs text-xs leading-relaxed text-muted-foreground sm:text-sm">
@@ -104,13 +120,22 @@ export function CartDrawer() {
               order. Estimated delivery in{" "}
               <span className="font-semibold text-foreground">30–35 mins</span>.
             </p>
-            <Button
-              type="button"
-              onClick={handleClose}
-              className="mt-6 rounded-full px-7 font-semibold"
-            >
-              Back to Menu
-            </Button>
+            <div className="mt-6 flex flex-wrap items-center justify-center gap-2.5">
+              <Button
+                onClick={handleClose}
+                className="rounded-full px-5 font-semibold"
+              >
+                <Link href="/account">View in My Orders</Link>
+              </Button>
+              <Button
+                type="button"
+                variant="outline"
+                onClick={handleClose}
+                className="rounded-full px-5 font-semibold"
+              >
+                Back to Menu
+              </Button>
+            </div>
           </div>
         ) : items.length === 0 ? (
           /* State 2: Empty Cart */
@@ -134,7 +159,7 @@ export function CartDrawer() {
             </Button>
           </div>
         ) : (
-          /* State 3: Active Cart Items + Bill Summary */
+          /* State 3: Active Cart Items + Address + Bill Summary */
           <>
             {/* Free Delivery Progress Banner */}
             <div className="border-b bg-primary/8 px-6 py-2.5 text-xs font-medium text-foreground">
@@ -208,8 +233,32 @@ export function CartDrawer() {
               ))}
             </div>
 
-            {/* Sticky Bill Summary & Place Order Footer */}
+            {/* Sticky Delivery Address + Bill Summary + Place Order Footer */}
             <div className="space-y-3 border-t bg-card/90 px-6 py-4">
+              {/* Active Delivery Address Strip */}
+              {activeAddress && (
+                <div className="flex items-start justify-between gap-2 rounded-xl border bg-muted/40 px-3 py-2 text-xs">
+                  <div className="flex items-start gap-2">
+                    <MapPin className="mt-0.5 h-3.5 w-3.5 shrink-0 text-primary" />
+                    <div>
+                      <span className="font-semibold text-foreground">
+                        Delivering to {activeAddress.label}
+                      </span>
+                      <p className="line-clamp-1 text-[11px] text-muted-foreground">
+                        {activeAddress.fullAddress}
+                      </p>
+                    </div>
+                  </div>
+                  <Link
+                    href="/account"
+                    onClick={closeDrawer}
+                    className="shrink-0 font-semibold text-primary hover:underline"
+                  >
+                    Change
+                  </Link>
+                </div>
+              )}
+
               <div className="space-y-1.5 text-xs sm:text-sm">
                 <div className="flex justify-between text-muted-foreground">
                   <span>Item Total</span>
