@@ -27,7 +27,7 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
       "Responsive food ordering experience featuring URL searchParams category/dietary filtering, FSSAI veg/non-veg indicators, portion & spice customization modal, and a shared React Context slide-out cart drawer.",
     category: "Frontend UI",
     techStack: ["Next.js", "TypeScript", "Tailwind CSS", "shadcn/ui"],
-    liveUrl: "https://zaffran-kitchen-ui.onrender.com",
+    liveUrl: "https://zaffran-kitchen.onrender.com/",
     repoUrl:
       "https://github.com/raviroyit/raviroyit/tree/main/01-restaurant-ordering-ui",
     featured: true,
